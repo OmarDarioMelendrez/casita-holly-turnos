@@ -53,7 +53,7 @@
     }
     .nav {
         grid-template-rows: none;
-        grid-template-columns: repeat(3, auto);
+        grid-template-columns: repeat(4, auto);
         padding: 0; 
     }
 }

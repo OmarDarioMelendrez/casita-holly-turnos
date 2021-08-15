@@ -38,6 +38,7 @@ const Header = () => {
 				<nav className={styles.nav}>
 					<Link to="/addTurn">agregar turno</Link>
 					<Link to="/addClient">agregar cliente</Link>
+					<Link to="/addPet">agregar mascota</Link>
 					<Link to="/">About</Link>
 				</nav>
 			)}

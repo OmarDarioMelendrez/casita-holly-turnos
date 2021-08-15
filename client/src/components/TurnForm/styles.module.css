@@ -12,6 +12,13 @@
     border: 1px solid grey;
     outline: none;
 }
+.form select {
+    background-color: transparent;
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    outline: none;
+}
 .form input[type="submit"] {
     margin-top: 25px;
     background-color: #282B34;

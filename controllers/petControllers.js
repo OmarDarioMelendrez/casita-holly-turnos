@@ -1,4 +1,4 @@
-const { Pet } = require("../models");
+const { Pet, Client } = require("../models");
 
 // get all Pets
 const PetGetAll = async (req, res, next) => {
@@ -49,7 +49,11 @@ const PetDelete = async (req, res, next) => {
 // create Pet
 const PetCreated = async (req, res, next) => {
 	try {
+		const {ownerId} = req.body;
+		const owner = await Client.findByPk(ownerId)
 		const pet = await Pet.create(req.body);
+		pet.setClient(owner)
+		pet.save()
 		res.send({ msg: "Pet created.", pet });
 	} catch (err) {
 		console.log(err);

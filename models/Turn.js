@@ -1,30 +1,36 @@
-const { Sequelize, DataTypes, Model } = require('sequelize');
-const db = require('../db');
-
+const { Sequelize, DataTypes, Model } = require("sequelize");
+const db = require("../db");
 
 class Turn extends Model {}
 
-Turn.init({
-  date: {
-    type: DataTypes.DATEONLY,
-    allowNull: false,
-  },
-  hour: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  price: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-  },
-  state: {
-      type: DataTypes.ENUM('pedido','cancelado','realizado'),
-      allowNull: false,
-  }
-}, {
-  sequelize: db,
-  modelName: 'turns'
-});
+Turn.init(
+	{
+		date: {
+			type: DataTypes.DATEONLY,
+			allowNull: false,
+		},
+		hour: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
+		price: {
+			type: DataTypes.INTEGER,
+			allowNull: false,
+		},
+		pet: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
+		state: {
+			type: DataTypes.ENUM("pedido", "cancelado", "realizado"),
+			allowNull: false,
+		},
+	},
+	{
+		sequelize: db,
+		modelName: "turns",
+	}
+);
 
 // User.beforeCreate((user, options) => {
 
@@ -32,8 +38,8 @@ Turn.init({
 //         .then(hash => {
 //             user.password = hash;
 //         })
-//         .catch(err => { 
-//             throw new Error(); 
+//         .catch(err => {
+//             throw new Error();
 //         });
 // });
 

@@ -1,25 +1,29 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
-import axios from 'axios'
+import axios from "axios";
 import styles from "./styles.module.css";
 
 export default function ClientForm() {
-  let history = useHistory();
+	let history = useHistory();
+
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
-	const onSubmit = (data) => {
-    axios.post("api/client", data)
-    .then(res => {
-      history.push("/")
-    })
-    .catch(err => {
-      console.log("Error al crear cliente.")
-    })
-  };
+
+	const onSubmit = (data,e) => {
+		axios
+			.post("api/client", data)
+			.then((res) => {
+				history.push("/");
+				e.target.reset()
+			})
+			.catch((err) => {
+				console.log("Error al crear cliente.");
+			});
+	};
 	console.log("errors:  " + { ...errors });
 
 	return (
@@ -37,15 +41,13 @@ export default function ClientForm() {
 				})}
 			/>
 			{errors.first_name?.type === "required" && (
-				<span className={styles.errorMsg}>
-					El nombre es requerido.
-				</span>
+				<span className={styles.errorMsg}>El nombre es requerido.</span>
 			)}
 			<label htmlFor="lastName">Apellido:</label>
 			<input
 				type="text"
 				placeholder="Coloque su apellido."
-        id="lastName"
+				id="lastName"
 				name="last_name"
 				{...register("last_name", {
 					required: true,
@@ -62,7 +64,7 @@ export default function ClientForm() {
 			<input
 				type="text"
 				placeholder="Coloque su email."
-        id="email"
+				id="email"
 				name="email"
 				{...register("email", {
 					required: true,
@@ -78,7 +80,7 @@ export default function ClientForm() {
 			<input
 				type="tel"
 				placeholder="Coloque su celular."
-        id="phone"
+				id="phone"
 				name="phone"
 				{...register("phone", {
 					required: true,

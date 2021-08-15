@@ -1,9 +1,9 @@
-const { Client } = require("../models");
+const { Client , Pet} = require("../models");
 
 // get all clients
 const ClientGetAll = async (req, res, next) => {
 	try {
-		const clients = await Client.findAll();
+		const clients = await Client.findAll({include: {model: Pet}, order: [['first_name', 'ASC']]});
 		res.send({ msg: "Get all the clients.", clients });
 	} catch (err) {
 		console.log(err);
