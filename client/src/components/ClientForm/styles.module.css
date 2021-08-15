@@ -1,0 +1,25 @@
+.form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.form label {
+    padding: 10px 0;
+}
+.form input {
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    outline: none;
+}
+.form input[type="submit"] {
+    margin-top: 25px;
+    background-color: #282B34;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 20px;
+}
+.errorMsg {
+    padding: 8px 8px 0;
+    color: red;
+}

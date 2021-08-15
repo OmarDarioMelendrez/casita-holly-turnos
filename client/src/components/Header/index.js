@@ -37,7 +37,7 @@ const Header = () => {
 			{(!isSmallScreen || isNavVisible) && (
 				<nav className={styles.nav}>
 					<Link to="/addTurn">agregar turno</Link>
-					<Link to="/">Articles</Link>
+					<Link to="/addClient">agregar cliente</Link>
 					<Link to="/">About</Link>
 				</nav>
 			)}
