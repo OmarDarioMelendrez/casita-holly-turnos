@@ -2,6 +2,7 @@ import React from 'react'
 import {Switch, Route, Redirect} from 'react-router-dom'
 
 import Home from './pages/Home'
+import AddTurn from './pages/AddTurn'
 import Header from './components/Header/index'
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
     <React.Fragment>
       <Header />
       <Switch>
-        <Route path="/" component={Home} />
+        <Route path="/" exact component={Home} />
+        <Route path="/addTurn" exact component={AddTurn} />
         <Redirect to="/" />
       </Switch>
     </React.Fragment>

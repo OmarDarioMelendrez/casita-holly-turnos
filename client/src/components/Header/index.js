@@ -36,7 +36,7 @@ const Header = () => {
 			<img src={Logo} className={styles.logo} alt="" />
 			{(!isSmallScreen || isNavVisible) && (
 				<nav className={styles.nav}>
-					<Link to="/">Home</Link>
+					<Link to="/addTurn">agregar turno</Link>
 					<Link to="/">Articles</Link>
 					<Link to="/">About</Link>
 				</nav>
