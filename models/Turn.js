@@ -24,6 +24,7 @@ Turn.init(
 		state: {
 			type: DataTypes.ENUM("pedido", "cancelado", "realizado"),
 			allowNull: false,
+      defaultValue: "pedido"
 		},
 	},
 	{

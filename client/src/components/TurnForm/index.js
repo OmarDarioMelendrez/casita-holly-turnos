@@ -24,8 +24,9 @@ export default function PetForm() {
 	const onSubmit = (data, e) => {
 		console.log(data);
 		axios
-			.post("api/pet", data)
+			.post("api/turn", data)
 			.then((res) => {
+				console.log("turno creado.")
 				history.push("/");
 				e.target.reset();
 			})
@@ -58,51 +59,65 @@ export default function PetForm() {
 			{errors.ownerId && (
 				<span className={styles.errorMsg}>Ingrese un dueño.</span>
 			)}
-			<label htmlFor="firstName">Nombre mascota:</label>
+			<label htmlFor="pet">Mascota:</label>
 			<input
 				type="text"
-				id="name"
+				id="pet"
 				placeholder="Coloque el nombre de la mascota."
-				name="name"
-				{...register("name", {
+				name="pet"
+				{...register("pet", {
 					required: true,
 					min: 3,
 					maxLength: 80,
 				})}
 			/>
-			{errors.name?.type === "required" && (
-				<span className={styles.errorMsg}>El nombre es requerido.</span>
+			{errors.pet && (
+				<span className={styles.errorMsg}>
+					El nombre de mascota es requerido.
+				</span>
 			)}
-			<label htmlFor="breed">Raza:</label>
+			<label htmlFor="date">Fecha:</label>
 			<input
-				type="text"
-				placeholder="Coloque raza de la mascota."
-				id="breed"
-				name="breed"
-				{...register("breed", {
+				type="date"
+				id="date"
+				name="date"
+				{...register("date", {
 					required: true,
-					min: 3,
-					maxLength: 100,
 				})}
 			/>
-			{errors.breed && (
-				<span className={styles.errorMsg}>La raza es requerida.</span>
+			{errors.date && (
+				<span className={styles.errorMsg}>
+					Por favor indique la fecha.
+				</span>
 			)}
-			<label htmlFor="size">Tamaño:</label>
-			<select
-				id="size"
-				name="size"
-				{...register("size", {
+			<label htmlFor="hour">Horario:</label>
+			<input
+				type="time"
+				id="hour"
+				name="hour"
+				{...register("hour", {
 					required: true,
 				})}
-			>
-				<option value="chico">chico</option>
-				<option value="mediano">mediano</option>
-				<option value="grande">grande</option>
-			</select>
-			{errors.size && (
+			/>
+			{errors.hour && (
 				<span className={styles.errorMsg}>
-					Indique el tamaño de la mascota.
+					Por favor indique el horario.
+				</span>
+			)}
+			<label htmlFor="price">Price:</label>
+			<input
+				type="number"
+				id="price"
+				placeholder="price"
+				{...register("price", {
+					required: true,
+					min: 10,
+					maxLength: 12,
+				})}
+			/>
+			{errors.price && (
+				<span className={styles.errorMsg}>
+					Indique el precio.
 				</span>
 			)}
 

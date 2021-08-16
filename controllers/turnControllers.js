@@ -1,4 +1,4 @@
-const { Turn } = require("../models");
+const { Turn, Client } = require("../models");
 
 // get all Turns
 const TurnGetAll = async (req, res, next) => {
@@ -49,7 +49,11 @@ const TurnDelete = async (req, res, next) => {
 // create Turn
 const TurnCreated = async (req, res, next) => {
 	try {
+		const {ownerId} = req.body;
+		const owner = await Client.findByPk(ownerId)
 		const turn = await Turn.create(req.body);
+		turn.setClient(owner)
+		// console.log(Object.keys(Turn.prototype))
 		res.send({ msg: "Turn created.", turn });
 	} catch (err) {
 		console.log(err);

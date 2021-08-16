@@ -11,6 +11,8 @@
     border-radius: 5px;
     border: 1px solid grey;
     outline: none;
+    background: none;
+    width: 100%;
 }
 .form select {
     background-color: transparent;

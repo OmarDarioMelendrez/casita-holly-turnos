@@ -26,6 +26,7 @@ export default function PetForm() {
 		axios
 			.post("api/pet", data)
 			.then((res) => {
+				console.log("mascota creada.")
 				history.push("/");
 				e.target.reset();
 			})

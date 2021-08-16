@@ -17,6 +17,7 @@ export default function ClientForm() {
 		axios
 			.post("api/client", data)
 			.then((res) => {
+				console.log("cliente creado.")
 				history.push("/");
 				e.target.reset()
 			})

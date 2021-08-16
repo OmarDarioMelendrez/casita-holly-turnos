@@ -36,10 +36,10 @@ const Header = () => {
 			<img src={Logo} className={styles.logo} alt="" />
 			{(!isSmallScreen || isNavVisible) && (
 				<nav className={styles.nav}>
-					<Link to="/addTurn">agregar turno</Link>
-					<Link to="/addClient">agregar cliente</Link>
-					<Link to="/addPet">agregar mascota</Link>
-					<Link to="/">About</Link>
+					<Link onClick={toggleNav} to="/addTurn">agregar turno</Link>
+					<Link onClick={toggleNav} to="/addClient">agregar cliente</Link>
+					<Link onClick={toggleNav} to="/addPet">agregar mascota</Link>
+					<Link onClick={toggleNav} to="/">About</Link>
 				</nav>
 			)}
 			<button onClick={toggleNav} className={styles.burger}>
