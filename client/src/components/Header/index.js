@@ -38,11 +38,11 @@ const Header = () => {
 			</Link>
 			{(!isSmallScreen || isNavVisible) && (
 				<nav className={styles.nav}>
+					<Link onClick={toggleNav} to="/turns">Turnos</Link>
 					<Link onClick={toggleNav} to="/clients">Clientes</Link>
 					<Link onClick={toggleNav} to="/addTurn">agregar turno</Link>
 					<Link onClick={toggleNav} to="/addClient">agregar cliente</Link>
 					<Link onClick={toggleNav} to="/addPet">agregar mascota</Link>
-					<Link onClick={toggleNav} to="/">About</Link>
 				</nav>
 			)}
 			<button onClick={toggleNav} className={styles.burger}>

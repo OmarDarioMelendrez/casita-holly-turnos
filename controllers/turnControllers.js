@@ -3,7 +3,7 @@ const { Turn, Client } = require("../models");
 // get all Turns
 const TurnGetAll = async (req, res, next) => {
 	try {
-		const turns = await Turn.findAll();
+		const turns = await Turn.findAll({include: {model: Client}, order: [['date', 'DESC']]});
 		res.send({ msg: "Get all the Turns.", turns });
 	} catch (err) {
 		console.log(err);
