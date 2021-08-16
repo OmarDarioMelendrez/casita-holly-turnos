@@ -4,6 +4,7 @@
     background-color: #282B34;
     padding: 10px;
     position: fixed;
+    z-index: 100;
     width: 100%;
     align-items: center;
 }

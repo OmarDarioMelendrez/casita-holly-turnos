@@ -11,7 +11,7 @@ const Header = () => {
 	const [isSmallScreen, setIsSmallScreen] = useState(false);
 
 	useEffect(() => {
-		const mediaQuery = window.matchMedia("(max-width: 700px)");
+		const mediaQuery = window.matchMedia("(max-width: 800px)");
 		mediaQuery.addListener(handleMediaQueryChange);
 		handleMediaQueryChange(mediaQuery);
 		return () => {
@@ -33,7 +33,9 @@ const Header = () => {
 
 	return (
 		<header className={styles.header}>
-			<img src={Logo} className={styles.logo} alt="" />
+			<Link to="/" >
+				<img src={Logo} className={styles.logo} alt="logo" />
+			</Link>
 			{(!isSmallScreen || isNavVisible) && (
 				<nav className={styles.nav}>
 					<Link onClick={toggleNav} to="/addTurn">agregar turno</Link>
