@@ -7,6 +7,7 @@ import AddClient from './pages/AddClient'
 import AddPet from './pages/AddPet'
 import Clients from './pages/Clients'
 import Turns from './pages/Turns'
+import SingleTurn from './pages/SingleTurn'
 import Header from './components/Header/index'
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
         <Route path="/addPet" exact component={AddPet} />
         <Route path="/clients" exact component={Clients} />
         <Route path="/turns" exact component={Turns} />
-        <Route path="/turns/:id" exact component={Turns} />
+        <Route path="/turns/:id" exact component={SingleTurn} />
         <Redirect to="/" />
       </Switch>
     </React.Fragment>

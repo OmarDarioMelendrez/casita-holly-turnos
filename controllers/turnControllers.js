@@ -14,7 +14,7 @@ const TurnGetAll = async (req, res, next) => {
 const TurnGet = async (req, res, next) => {
 	try {
 		const { turnId } = req.params;
-		const turn = await Turn.findByPk(turnId);
+		const turn = await Turn.findByPk(turnId,{include: {model: Client}});
 		res.send({ msg: "Get Turn.", turn });
 	} catch (err) {
 		console.log(err);

@@ -43,7 +43,7 @@ const Turns = () => {
 			<div className={styles.main_container}>
 				{filterTurns.length ? (
 					filterTurns.map((turn) => {
-						return <CardTurns turn={turn} />;
+						return <CardTurns key={turn.id} turn={turn} />;
 					})
 				) : (
 					<h3>Cliente no encontrado</h3>

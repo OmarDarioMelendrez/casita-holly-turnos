@@ -1,67 +1,67 @@
-
 .clientLink {
-    width: 100%;
-    text-decoration: none;
-    color: #000;
+	width: 100%;
+	text-decoration: none;
+	color: #000;
 }
 .clientCard {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    margin: 10px auto;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #7ed3e2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	margin: 10px auto;
+	padding: 10px;
+	border-radius: 10px;
+	background-color: #e4e4e4;
 }
 .clientImage {
-    width: 50px;
+	width: 50px;
 }
 .clientName {
-    text-transform: capitalize;
-    margin-top: 4px;
+	text-transform: capitalize;
+	margin-top: 4px;
 }
 .clientDataContainer {
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
 }
 .clientDataContainer__item {
-    width: auto;
-    padding: 0 8px;
+	width: auto;
+	padding: 0 8px;
 }
 .clientData {
-    margin: 8px 0 0;
-    text-align: left;
+	margin: 8px 0 0;
+	text-align: left;
 }
 .clientData span {
-    font-weight: bold;
+	font-weight: bold;
 }
 .clientPets {
-    margin-top: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	margin-top: 8px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .clientPets h5 {
-    margin: 5px 0;
+	margin: 5px 0;
 }
 .petBadge {
-    display: inline-block;
-    padding: 4px;
-    margin: 5px;
-    background-color: orange;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: bold;
+	display: inline-block;
+	padding: 4px;
+	margin: 5px;
+	background-color: orange;
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: bold;
 }
 @media screen and (min-width: 650px) {
-    .clientCard {
-        width: 45%;
-    }
-    .clientDataContainer__item {
-        width: 45%;
-    }
+	.clientLink {
+		width: 45%;
+        padding: 10px;
+	}
+	.clientDataContainer__item {
+		width: 45%;
+	}
 }
