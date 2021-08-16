@@ -38,6 +38,7 @@ const Header = () => {
 			</Link>
 			{(!isSmallScreen || isNavVisible) && (
 				<nav className={styles.nav}>
+					<Link onClick={toggleNav} to="/clients">Clientes</Link>
 					<Link onClick={toggleNav} to="/addTurn">agregar turno</Link>
 					<Link onClick={toggleNav} to="/addClient">agregar cliente</Link>
 					<Link onClick={toggleNav} to="/addPet">agregar mascota</Link>
