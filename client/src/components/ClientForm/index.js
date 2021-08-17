@@ -1,6 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import styles from "./styles.module.css";
 
@@ -13,13 +15,23 @@ export default function ClientForm() {
 		formState: { errors },
 	} = useForm();
 
-	const onSubmit = (data,e) => {
+	const onSubmit = (data, e) => {
 		axios
 			.post("api/client", data)
 			.then((res) => {
-				console.log("cliente creado.")
-				history.push("/");
-				e.target.reset()
+				console.log("cliente creado.");
+				toast.success("Cliente creado!", {
+					position: "top-center",
+					autoClose: 2000,
+					hideProgressBar: false,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
+				setTimeout(() => {
+					history.push("/");
+				}, 2000);
 			})
 			.catch((err) => {
 				console.log("Error al crear cliente.");
@@ -85,7 +97,7 @@ export default function ClientForm() {
 				name="phone"
 				{...register("phone", {
 					required: true,
-					min: 10,
+					minLength: 10,
 					maxLength: 12,
 				})}
 			/>
@@ -96,6 +108,17 @@ export default function ClientForm() {
 			)}
 
 			<input type="submit" />
+			<ToastContainer
+				position="top-center"
+				autoClose={5000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+			/>
 		</form>
 	);
 }

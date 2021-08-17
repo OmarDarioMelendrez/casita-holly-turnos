@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import styles from "./styles.module.css";
 
@@ -26,9 +28,19 @@ export default function PetForm() {
 		axios
 			.post("api/pet", data)
 			.then((res) => {
-				console.log("mascota creada.")
-				history.push("/");
-				e.target.reset();
+				console.log("mascota creada.");
+				toast.success("Mascota creada!", {
+					position: "top-center",
+					autoClose: 2000,
+					hideProgressBar: false,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
+				setTimeout(() => {
+					history.push("/");
+				}, 2000);
 			})
 			.catch((err) => {
 				console.log("Error al asignar nueva mascota.");
@@ -109,6 +121,17 @@ export default function PetForm() {
 			)}
 
 			<input type="submit" />
+			<ToastContainer
+				position="top-center"
+				autoClose={5000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+			/>
 		</form>
 	);
 }
