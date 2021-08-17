@@ -43,8 +43,35 @@
     font-size: 14px;
     font-weight: bold;
 }
+.btn {
+	padding: 10px;
+	margin: 5px;
+	background: none;
+	border: none;
+	color: #FFF;
+	font-weight: bold;
+	border-radius: 5px;
+}
+.btn a {
+	text-decoration: none;
+	color: #FFF;
+}
+.edit {
+	background-color: rgb(43, 168, 209);
+}
+.delete {
+	background-color: red;
+}
+.done {
+	background-color: green;
+}
 @media screen and (min-width: 650px) {
     .clientCard {
         width: 45%;
     }
+}
+@media screen and (min-width: 800px){
+    .btn {
+		font-size: 1rem;
+	}
 }

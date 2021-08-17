@@ -1,8 +1,9 @@
 import React from "react";
-
+import {Link} from "react-router-dom"
 import styles from "./styles.module.css";
 
-const CardClients = ({ client }) => {
+const CardClients = ({ client, handleDelete }) => {
+
 	return (
 		<article className={styles.clientCard}>
 			<img
@@ -22,11 +23,28 @@ const CardClients = ({ client }) => {
 				</p>
 				<div className={styles.clientPets}>
 					<h5>Mascotas:</h5>
-					{client.pets.length ? client.pets.map(pet => {
-                        return <div className={styles.petBadge}>{pet.name}</div>
-                    }) : (
+					{client.pets.length ? (
+						client.pets.map((pet) => {
+							return (
+								<div className={styles.petBadge}>
+									{pet.name}
+								</div>
+							);
+						})
+					) : (
 						<div className={styles.petBadge}>Sin mascotas</div>
 					)}
+				</div>
+				<div className={styles.actions}>
+					<button
+						onClick={()=>{handleDelete(client.id)}}
+						className={`${styles.btn} ${styles.delete}`}
+					>
+						Eliminar
+					</button>
+					<button className={`${styles.btn} ${styles.done}`}>
+						<Link to={`/clients/edit/${client.id}`}>Editar</Link>
+					</button>
 				</div>
 			</div>
 		</article>

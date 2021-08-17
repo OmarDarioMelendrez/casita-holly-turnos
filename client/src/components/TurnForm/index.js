@@ -43,7 +43,16 @@ export default function TurnForm() {
 				}, 2000);
 			})
 			.catch((err) => {
-				console.log("Error al asignar nueva mascota.");
+				console.log("Error al crear turno.");
+				toast.error('Error al crear turno!', {
+					position: "top-center",
+					autoClose: 2000,
+					hideProgressBar: false,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+					});
 			});
 	};
 	console.log("errors:  " + { ...errors });

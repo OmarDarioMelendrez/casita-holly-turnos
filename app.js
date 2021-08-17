@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // serve static files
-app.use(express.static(path.join(__dirname,"client", "build")));
+app.use(express.static(path.join(__dirname, "client", "build")));
 
 // logger of request
 app.use(morgan("tiny"));
@@ -22,7 +22,12 @@ app.use("/api", router);
 
 // return the static server
 app.get("/*", (req, res) => {
-	res.sendFile(path.join(__dirname, "client","build", "index.html"));
+	res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+
+app.use(function (err, req, res, next) {
+	console.error(err.stack);
+	res.status(500).send("Something broke!");
 });
 
 // startup server

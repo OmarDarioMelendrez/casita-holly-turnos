@@ -44,6 +44,15 @@ export default function PetForm() {
 			})
 			.catch((err) => {
 				console.log("Error al asignar nueva mascota.");
+				toast.error('Error al crear mascota!', {
+					position: "top-center",
+					autoClose: 2000,
+					hideProgressBar: false,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+					});
 			});
 	};
 	console.log("errors:  " + { ...errors });

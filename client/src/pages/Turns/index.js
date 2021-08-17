@@ -46,7 +46,7 @@ const Turns = () => {
 						return <CardTurns key={turn.id} turn={turn} />;
 					})
 				) : (
-					<h3>Cliente no encontrado</h3>
+					<h3>Aún no hay turnos.</h3>
 				)}
 			</div>
 		</div>
