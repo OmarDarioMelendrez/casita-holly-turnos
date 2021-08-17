@@ -79,6 +79,9 @@
 .delete {
 	background-color: red;
 }
+.done {
+	background-color: green;
+}
 @media screen and (min-width: 650px) {
 	.main_container {
 		flex-direction: row;

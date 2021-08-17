@@ -30,8 +30,8 @@ const Clients = () => {
 			<input onChange={(e)=> {handleFilterClients(e)}} className={styles.filter} type="text" placeholder="Busque por nombre o apelldio." />
 			<div className={styles.main_container}>
 				{
-					filterClients.length ? filterClients.map(client => {
-						return <CardClients client={client} />
+					filterClients.length ? filterClients.map((client,e) => {
+						return <CardClients key={e} client={client} />
 					})
 					:
 					(

@@ -12,7 +12,6 @@ const Turns = () => {
 	useEffect(() => {
 		axios.get(`/api/turn/${id}`).then((res) => {
 			setTurn(res.data.turn);
-			console.log(res.data.turn);
 		});
 	}, [id]);
 
@@ -22,15 +21,33 @@ const Turns = () => {
 		return `${day}/${month}/${year} `;
 	};
 
-	const handleDelete = () => {
-		let confirmated = window.confirm("Seguro que desea borrar el turno?")
-		if (confirmated){
-			axios.delete(`/api/turn/${id}`)
-			.then(res => {
-				history.push("/")
-			})
+	const handleDone = () => {
+		let confirmated = window.confirm("Ya realizo el turno?");
+		if (confirmated) {
+			axios
+				.put(`/api/turn/${id}`, { ...turn, state: "realizado" })
+				.then((res) => {
+					axios.get(`/api/turn/${id}`).then((res) => {
+						setTurn(res.data.turn);
+						window.alert("turno actualizado");
+					});
+				});
 		}
-	}
+	};
+
+	const handleCancel = () => {
+		let confirmated = window.confirm("Seguro que desea cancelar el turno?");
+		if (confirmated) {
+			axios
+				.put(`/api/turn/${id}`, { ...turn, state: "cancelado" })
+				.then((res) => {
+					axios.get(`/api/turn/${id}`).then((res) => {
+						setTurn(res.data.turn);
+						window.alert("turno actualizado");
+					});
+				});
+		}
+	};
 
 	if (turn && turn.id) {
 		return (
@@ -63,11 +80,20 @@ const Turns = () => {
 						<div className={styles.petBadge}>{turn.pet}</div>
 					</div>
 					<div className={styles.actions}>
-						<button  className={`${styles.btn} ${styles.edit}`}>
-							Editar
+						<button
+							onClick={handleDone}
+							className={`${styles.btn} ${styles.done}`}
+						>
+							Terminado
 						</button>
-						<button onClick={handleDelete} className={`${styles.btn} ${styles.delete}`}>
-							Borrar
+						<button
+							onClick={handleCancel}
+							className={`${styles.btn} ${styles.delete}`}
+						>
+							Cancelar
+						</button>
+						<button className={`${styles.btn} ${styles.edit}`}>
+							Editar
 						</button>
 					</div>
 				</div>
