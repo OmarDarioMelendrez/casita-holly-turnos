@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import styles from "./styles.module.css";
 
 const Turns = () => {
-	const history = useHistory();
 	let { id } = useParams();
-	console.log(id);
 	const [turn, setTurn] = useState({});
 
 	useEffect(() => {
@@ -93,7 +91,9 @@ const Turns = () => {
 							Cancelar
 						</button>
 						<button className={`${styles.btn} ${styles.edit}`}>
-							Editar
+							<Link to={`/turns/edit/${id}`} >
+								Editar
+							</Link>
 						</button>
 					</div>
 				</div>

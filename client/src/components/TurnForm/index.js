@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import styles from "./styles.module.css";
 
-export default function PetForm() {
+export default function TurnForm() {
 	let history = useHistory();
 
 	const [owners, setOwners] = useState([]);
