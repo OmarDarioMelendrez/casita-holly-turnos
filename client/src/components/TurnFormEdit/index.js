@@ -92,7 +92,7 @@ export default function TurnFormEdit() {
 				<input
 					type="number"
 					id="price"
-					placeholder="price"
+					name="price"
 					value={form.price}
 					onChange={(e)=>{handleChange(e)}}
 				/>
