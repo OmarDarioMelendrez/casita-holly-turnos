@@ -25,6 +25,7 @@
     color: #FFF;
     font-weight: bold;
     font-size: 20px;
+    cursor: pointer;
 }
 .errorMsg {
     padding: 8px 8px 0;
